@@ -2,7 +2,7 @@
 import google.generativeai as genai
 import os
 
-# Fetch Gemini API Key from environment variable (or set it here)
+# Fetch Gemini API
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Basic inappropriate content filter
@@ -22,7 +22,7 @@ def get_llm_response(query):
 
     try:
         genai.configure(api_key=GEMINI_API_KEY)
-        model = genai.GenerativeModel("gemini-pro")  # Use "gemini-pro" for text responses
+        model = genai.GenerativeModel("gemini-pro")  
         response = model.generate_content(query)
         return response.text if response.text else "No response received."
     except Exception as e:
